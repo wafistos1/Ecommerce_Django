@@ -147,3 +147,5 @@ dmypy.json
 # End of https://www.toptal.com/developers/gitignore/api/django
 YaTache/settings/production.py
 YaTache/settings/dev.py
+requirements/dev.txt
+requirements/production.txt
