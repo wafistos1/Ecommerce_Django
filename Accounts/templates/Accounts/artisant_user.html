@@ -9,9 +9,17 @@
 
     <h2>Inscriptions Artisant </h2>
     <br><br>
-    <form action="" method="POST">
+    <form  class="contact1-form validate-form" action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
+        {% for field in form %}
+        <div class="fieldWrapper">
+            <p class="alert alert-danger">{{ field.errors }}</p>
+            {% if field.help_text %}
+            <p class="alert alert-warning">{{ field.help_text|safe }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
         <button type="submit" class="site-btn">Inscription</button>
     </form>
 </div>

@@ -13,9 +13,7 @@ TYPE_CHOICES = [
 ]
 # Create your models here.
 class ArtisantUser(models.Model):
-
-    
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="artisant")
     profession = models.CharField(max_length=244, choices=TYPE_CHOICES, default=Peintre)
     description = models.TextField()
 
@@ -23,9 +21,9 @@ class ArtisantUser(models.Model):
         return f"{self.user.username}-[{self.profession}]"
 
 
-class CompanyUser(models.Model):
-    contact_person = models.OneToOneField(User, on_delete=models.CASCADE)
-    company_name = models.CharField(max_length=50, null=False, blank=False)
+class ProfileUser(models.Model):
+    profile_user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
+    picture = models.ImageField(default='default.jpg', upload_to='picture/')
 
     def __str__(self):
-        return f"{self.contact_person.username}-[{self.company_name}]"
+        return f"{self.profile_user.username}"
