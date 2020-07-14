@@ -1,14 +1,14 @@
-{% extends "account/base.html" %}
+{% extends "index.html" %}
 
 {% load i18n %}
 {% load account socialaccount %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block head_title %}<{% trans "Sign In" %}{% endblock %}
 
-{% block content %}
-<div class="container">
-  <h1>{% trans "Sign In" %}</h1>
-
+{% block content1 %}
+<div class="container section-title">
+  <h2>{% trans "Sign In" %}</h2>
+<br><br>
   {% get_providers as socialaccount_providers %}
 
   {% if socialaccount_providers %}
@@ -40,24 +40,20 @@
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
     <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-    <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+    <button class="site-btn" type="submit">{% trans "Sign In" %}</button>
   </form>
 </div>
-{% endblock %}
-{% block content1 %}
 {% endblock content1 %}
-
 {% block content2 %}
 {% endblock content2 %}
 
 {% block content3 %}
 {% endblock content3 %}
 
+{% block content4 %}
+{% endblock content4 %}
 {% block content5 %}
 {% endblock content5 %}
 
 {% block content6 %}
 {% endblock content6 %}
-
-{% block content7 %}
-{% endblock content7 %}

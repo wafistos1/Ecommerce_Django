@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% load static %}
+<!-- Blocks  -->
+
+{% block head_title %} <title> Inscriptions Artisant </title>{% endblock head_title %}
+
+{% block content1 %}
+<div class="container section-title">
+
+    <h2>Inscriptions Artisant </h2>
+    <br><br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="site-btn">Inscription</button>
+    </form>
+</div>
+
+
+{% endblock content1 %}
+{% block content2 %}{% endblock content2 %}
+{% block content3 %}{% endblock content3 %}
+{% block content4 %}{% endblock content4 %}
+{% block content5 %}{% endblock content5 %}
+{% block content6 %}{% endblock content6 %}
+<!-- endBlocks -->

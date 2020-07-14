@@ -149,3 +149,5 @@ YaTache/settings/production.py
 YaTache/settings/dev.py
 requirements/dev.txt
 requirements/production.txt
+.vscode/
+venv/
