@@ -1,4 +1,4 @@
-{% extends "account/base.html" %}
+{% extends "index.html" %}
 
 {% load i18n %}
 {% load account %}
@@ -6,7 +6,7 @@
 {% block head_title %}{% trans "Confirm E-mail Address" %}{% endblock %}
 
 
-{% block content %}
+{% block content1 %}
 <h1>{% trans "Confirm E-mail Address" %}</h1>
 
 {% if confirmation %}
@@ -29,3 +29,17 @@
 {% endif %}
 
 {% endblock %}
+{% block content2 %}
+{% endblock content2 %}
+
+{% block content3 %}
+{% endblock content3 %}
+
+{% block content5 %}
+{% endblock content5 %}
+
+{% block content6 %}
+{% endblock content6 %}
+
+{% block content7 %}
+{% endblock content7 %}

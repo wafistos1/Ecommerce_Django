@@ -104,13 +104,15 @@
                     <nav class="header__menu" style="left: 0;">
                         <ul>
                             <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop-grid.html">Shop</a></li>
-                            {% if user.is_authenticated %}
-
-
-                            
-                                
+                            {% if user.is_authenticated  and  not user.artisant.is_artisant %}
+                            <li><a href=" ">Ajouter un SERVICE</a></li> 
+                            <li><a href=" ">rechercher un Artisant</a></li> 
+                              
                             </li>
+
+                            {% elif user.is_authenticated  and  user.artisant.is_artisant %}
+                            <li><a href=" ">rechercher un Service</a></li> 
+
                             {% else %}
                             <li><a href=" {% url 'artisant_user' %}">Artisant</a></li>
                                         <li><a href="{% url 'signup_user' %}">Inscriptions</a></li>
@@ -123,7 +125,7 @@
                 <div class="col-lg-3">
                     <div class="header__menu">
                         <ul>
-                            {% if user.is_authenticated %}
+                            {% if user.is_authenticated  and not user.artisant.is_artisant %}
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                             <li> <a href="#" class=" profile ">{{ user.username }} <img
@@ -136,11 +138,26 @@
                             </ul>
                         </nav>
                     </li>
+                    {% elif user.is_authenticated  and  user.artisant.is_artisant %}
+                    <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li> <a href="#" class=" profile ">{{ user.username }} <img
+                                        src="{{ user.artisant.avatar.url }}"> <b class="caret"></b></a>
+                                <nav class="header__menu">
+                                    <ul class=" header__menu__dropdown">
+                                        <li><a href="">Profile</a></li>
+                                        <li><a href="">Mes Services</a></li>
+                                        <li><a href="">DashBoard</a></li>
+                                        <li><a href="{% url 'account_logout'%}"">Sortir</a></li>
+                            </ul>
+                        </nav>
+                    </li>
+
                             {% else %}
                             {% endif %}
                         
                         </ul>
-                        <
+                        
                     </div>
                 </div>
             </div>
@@ -152,6 +169,13 @@
     <!-- Header Section End -->
     {% endblock nav-bar %}
     {% block content1 %}
+    {% if messages %}
+    <div class="container alert alert-primary" role="alert">
+        {% for message in messages %}
+        <p id="messages"> {{ message }}</p>
+        {% endfor%}
+    </div>
+    {% endif %}
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="container">
@@ -596,7 +620,7 @@
                                 </a>
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="{% static 'img/latest-product/lp-2.jpg" alt="">
+                                        <img src="{% static 'img/latest-product/lp-2.jpg' %}" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6>Crab Pool Security</h6>

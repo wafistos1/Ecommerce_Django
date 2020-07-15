@@ -54,6 +54,7 @@ class ArtisantSignupForm(SignupForm):
             user=user,
             profession=self.cleaned_data.get('profession'),
             description=self.cleaned_data.get('description'),
+            is_artisant=True,
         )
         artisant_user.save()
 

@@ -11,11 +11,15 @@ TYPE_CHOICES = [
     (Plombier, 'Plombier'),
     (Carreleur, 'Carreleur'),
 ]
+
+
 # Create your models here.
 class ArtisantUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="artisant")
     profession = models.CharField(max_length=244, choices=TYPE_CHOICES, default=Peintre)
     description = models.TextField()
+    is_artisant = models.BooleanField()
+    avatar = models.ImageField(default='default_artisant.jpg', upload_to='picture/artisant/', null=True)
 
     def __str__(self):
         return f"{self.user.username}-[{self.profession}]"
