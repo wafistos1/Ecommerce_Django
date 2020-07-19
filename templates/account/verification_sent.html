@@ -2,13 +2,17 @@
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+{% block head_title %}<title>{% trans "Verify Your E-mail Address" %}</title>{% endblock %}
 
 {% block content1 %}
+<div class="container section-title">
     <h2>{% trans "Verify Your E-mail Address" %}</h2>
+    <br>
+    <br>
+
 
     <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
-
+</div>
 {% endblock %}
 {% block content2 %}
 {% endblock content2 %}
@@ -16,11 +20,11 @@
 {% block content3 %}
 {% endblock content3 %}
 
+{% block content4 %}
+{% endblock content4 %}
+
 {% block content5 %}
 {% endblock content5 %}
 
 {% block content6 %}
 {% endblock content6 %}
-
-{% block content7 %}
-{% endblock content7 %}

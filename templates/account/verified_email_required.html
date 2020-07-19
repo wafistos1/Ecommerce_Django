@@ -2,23 +2,26 @@
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+{% block head_title %}<title>{% trans "Verify Your E-mail Address" %}</title>{% endblock %}
 
 {% block content1 %}
-<h2>{% trans "Verify Your E-mail Address" %}</h2>
+<div class="container section-title">
+    <h2>{% trans "Verify Your E-mail Address" %}</h2>
+    <br>
+    <br>
+    {% url 'account_email' as email_url %}
 
-{% url 'account_email' as email_url %}
+    <p>{% blocktrans %}This part of the site requires us to verify that
+        you are who you claim to be. For this purpose, we require that you
+        verify ownership of your e-mail address. {% endblocktrans %}</p>
 
-<p>{% blocktrans %}This part of the site requires us to verify that
-you are who you claim to be. For this purpose, we require that you
-verify ownership of your e-mail address. {% endblocktrans %}</p>
+    <p>{% blocktrans %}We have sent an e-mail to you for
+        verification. Please click on the link inside this e-mail. Please
+        contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
 
-<p>{% blocktrans %}We have sent an e-mail to you for
-verification. Please click on the link inside this e-mail. Please
-contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
-
-<p>{% blocktrans %}<strong>Note:</strong> you can still <a href="{{ email_url }}">change your e-mail address</a>.{% endblocktrans %}</p>
-
+    <p>{% blocktrans %}<strong>Note:</strong> you can still <a href="{{ email_url }}">change your e-mail
+            address</a>.{% endblocktrans %}</p>
+</div>
 
 {% endblock %}
 {% block content2 %}
@@ -27,11 +30,11 @@ contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
 {% block content3 %}
 {% endblock content3 %}
 
+{% block content4 %}
+{% endblock content4 %}
+
 {% block content5 %}
 {% endblock content5 %}
 
 {% block content6 %}
 {% endblock content6 %}
-
-{% block content7 %}
-{% endblock content7 %}

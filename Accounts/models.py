@@ -28,6 +28,8 @@ class ArtisantUser(models.Model):
 class ProfileUser(models.Model):
     profile_user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     picture = models.ImageField(default='default.jpg', upload_to='picture/')
+    
 
     def __str__(self):
         return f"{self.profile_user.username}"
+    

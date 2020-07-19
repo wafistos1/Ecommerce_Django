@@ -132,7 +132,7 @@
                                         src="{{ user.profile.picture.url }}"> <b class="caret"></b></a>
                                 <nav class="header__menu">
                                     <ul class=" header__menu__dropdown">
-                                        <li><a href="">Profile</a></li>
+                                        <li><a href="{% url 'profil' %}">Profile</a></li>
                                         <li><a href="">Mes annonces</a></li>
                                         <li><a href="{% url 'account_logout'%}"">Sortir</a></li>
                             </ul>
@@ -145,7 +145,7 @@
                                         src="{{ user.artisant.avatar.url }}"> <b class="caret"></b></a>
                                 <nav class="header__menu">
                                     <ul class=" header__menu__dropdown">
-                                        <li><a href="">Profile</a></li>
+                                        <li><a href="{% url 'profil' %}"">Profile</a></li>
                                         <li><a href="">Mes Services</a></li>
                                         <li><a href="">DashBoard</a></li>
                                         <li><a href="{% url 'account_logout'%}"">Sortir</a></li>

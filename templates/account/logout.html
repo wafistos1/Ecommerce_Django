@@ -2,12 +2,15 @@
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+{% block head_title %}<title>{% trans "Sign Out" %}</title>{% endblock %}
 
 {% block content1 %}
 <div class="container">
-<div class="container section-title" ></div>
+<div class="container section-title" >
 <h2>{% trans "Sign Out" %}</h2>
+<br>
+<br>
+
 
 <p>{% trans 'Are you sure you want to sign out?' %}</p>
 
@@ -29,6 +32,7 @@
 
 {% block content4 %}
 {% endblock content4 %}
+
 {% block content5 %}
 {% endblock content5 %}
 

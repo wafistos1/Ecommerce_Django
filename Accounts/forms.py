@@ -1,8 +1,9 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from allauth.account.forms import SignupForm
-from .models import ProfileUser, ArtisantUser, TYPE_CHOICES 
-
+from .models import ProfileUser, ArtisantUser, TYPE_CHOICES
+from django.contrib.auth.forms import UserChangeForm  
+from django.contrib.auth.models import User
 
 class ProfileSignupForm(SignupForm):
     # declare here all the extra fields in CompanyUser model WITHOUT
@@ -62,3 +63,21 @@ class ArtisantSignupForm(SignupForm):
         # the Django one), otherwise you will get an error when the
         # complete_signup method will try to look at it.
         return artisant_user.user
+
+
+class UserProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = ProfileUser
+        fields = ('picture',)
+
+
+class UserArtisantUpdateForm(forms.ModelForm):
+    class Meta:
+        model = ArtisantUser
+        fields = ('profession', 'description', 'avatar', )
+
+
+class UserUpdate(forms.ModelForm):
+    class Meta:
+        model = User 
+        fields = ('username',) 
