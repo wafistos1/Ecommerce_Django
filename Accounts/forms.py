@@ -1,9 +1,10 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from allauth.account.forms import SignupForm
-from .models import ProfileUser, ArtisantUser, TYPE_CHOICES
+from .models import ProfileUser, ArtisantUser, TYPE_CHOICES, ImagesArtisant
 from django.contrib.auth.forms import UserChangeForm  
 from django.contrib.auth.models import User
+
 
 class ProfileSignupForm(SignupForm):
     # declare here all the extra fields in CompanyUser model WITHOUT
@@ -79,5 +80,14 @@ class UserArtisantUpdateForm(forms.ModelForm):
 
 class UserUpdate(forms.ModelForm):
     class Meta:
-        model = User 
-        fields = ('username',) 
+        model = User
+        fields = ('username',)
+
+
+class ImageForm(forms.ModelForm):
+    image = forms.ImageField(label='image')
+
+    class Meta:
+        model = ImagesArtisant
+        fields = ('image', )
+        

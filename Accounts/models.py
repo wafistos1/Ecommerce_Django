@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
+from django.urls import reverse
 
 Peintre = 'Peintre'
 Menuisier = 'Menuisier'
@@ -28,8 +29,23 @@ class ArtisantUser(models.Model):
 class ProfileUser(models.Model):
     profile_user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     picture = models.ImageField(default='default.jpg', upload_to='picture/')
-    
 
     def __str__(self):
         return f"{self.profile_user.username}"
+
+
+class ImagesArtisant(models.Model):
+    Artisant_images = models.ForeignKey(ArtisantUser, on_delete=models.CASCADE, related_name='user_image')
+    image = models.ImageField(upload_to='picture/artisant/images/', null=True)
+
+    class Meta:
+        ordering = ('Artisant_images',)
+
+    def __str__(self):
+        return self.Artisant_images.user.username
     
+    def get_absolute_url(self):
+        pass
+    
+    def get_update_url(self): 
+        pass

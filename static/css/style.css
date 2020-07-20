@@ -1,6 +1,6 @@
 /******************************************************************
   Template Name: Ogani
-  Desdtbription:  Ogani eCommerce  HTML Template
+  Description:  Ogani eCommerce  HTML Template
   Author: Colorlib
   Author URI: https://colorlib.com
   Version: 1.0
@@ -499,7 +499,7 @@ ol {
 
 .header__cart ul {
 	display: inline-block;
-	margin-right: 15px;
+	margin-right: 25px;
 }
 
 .header__cart ul li {
@@ -2278,10 +2278,7 @@ ol {
 }
 
 .blog__item__pic img {
-	height: 230px;
-position: relative;
-overflow: hidden;
-background-position: center center;
+	min-width: 100%;
 }
 
 .blog__item__text {
@@ -3469,94 +3466,3 @@ background-position: center center;
 		font-size: 24px;
 	}
 }
-
-.profile img {
-	border-radius: 50%;
-	width: 36px;
-	height: 36px;
-	margin-right: 10px;
-}
-
-.header__menu__profile ul li .header__menu__dropdown {
-	position: absolute;
-	left: 0;
-	top: 50px;
-	background: #222222;
-	width: 180px;
-	z-index: 9;
-	padding: 5px 0;
-	-webkit-transition: all, 0.3s;
-	-moz-transition: all, 0.3s;
-	-ms-transition: all, 0.3s;
-	-o-transition: all, 0.3s;
-	transition: all, 0.3s;
-	opacity: 0;
-	visibility: hidden;
-}
-
-.header__menu__profile {
-	display: none;
-}
-.header__menu__profile :hover>{
-	display: block;
-}
-
-.header__menu__profile ul li .header__menu__dropdown li {
-	margin-right: 0;
-	display: block;
-}
-
-.header__menu__profile ul li .header__menu__dropdown li:hover>a {
-	color: #7fad39;
-}
-
-.header__menu__profile ul li .header__menu__dropdown li a {
-	text-transform: capitalize;
-	color: #ffffff;
-	font-weight: 400;
-	padding: 5px 15px;
-}
-
-.header__menu__profile ul li.active a {
-	color: #7fad39;
-}
-
-.header__menu__profile ul li:hover .header__menu__dropdown {
-	top: 30px;
-	opacity: 1;
-	visibility: visible;
-}
-
-.header__menu__profile ul li:hover>a {
-	color: #7fad39;
-}
-
-.header__menu__profile ul li:last-child {
-	margin-right: 0;
-}
-
-.header__menu__profile ul li a {
-	font-size: 14px;
-	color: #252525;
-	text-transform: uppercase;
-	font-weight: 700;
-	letter-spacing: 2px;
-	-webkit-transition: all, 0.3s;
-	-moz-transition: all, 0.3s;
-	-ms-transition: all, 0.3s;
-	-o-transition: all, 0.3s;
-	transition: all, 0.3s;
-	padding: 5px 0;
-	display: block;
-}
-
-.header__menu img {
-	position: absolute;
-	top: 0px;
-}
-
-#nav-header {
-    display: flex;
-    justify-content: flex-end;
-}
-ol.f {list-style-type: decimal;}

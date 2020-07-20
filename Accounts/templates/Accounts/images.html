@@ -1,19 +1,18 @@
 {% extends 'index.html' %}
 
 
-{% block head_title %} <title> Update Profil artisant </title>{% endblock head_title %}
+{% block head_title %} <title> Update Image Artistan </title>{% endblock head_title %}
 
 {% block content1 %}
 
     <div class="container section-title">
 
-        <h2>Edit Profil Artisant  </h2>
+        <h2>Edit Images </h2>
         <br><br>
         <form  class="contact1-form validate-form" action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form }}
             <div class="col-md-6">
-                <h1>update images </h1>
+               
                 {{ formset.management_form }}
                 {% for form in formset %}
                 <div class="checkout__input">
