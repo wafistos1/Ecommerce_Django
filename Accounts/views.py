@@ -95,7 +95,7 @@ class ArtisantUpdateView(LoginRequiredMixin, UpdateView):
 
 ArtisantUpdate = ArtisantUpdateView.as_view()
 
-
+@login_required(login_url='account_login')
 def profil(request):
     artisant = None
     profile = None
@@ -150,3 +150,19 @@ def AddArtisantImages(request):
         'formset': formset,
     }
     return render(request, 'Accounts/images.html', context)
+
+
+@login_required(login_url='account_login')
+def artisant_job(request):
+    artisant = None
+    try:
+        artisant = ArtisantUser.objects.get(user=request.user.id)
+        print(artisant)
+        print('Success artisant')
+    except:
+        pass
+
+    context = {
+        'artisant': artisant,
+    }
+    return render(request, 'Accounts/artisant_job.html', context)
