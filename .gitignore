@@ -151,4 +151,5 @@ requirements/dev.txt
 requirements/production.txt
 .vscode/
 venv/
-Accounts/migrations/*
+Accounts/migrations
+Annonce/migrations

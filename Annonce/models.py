@@ -1,25 +1,54 @@
 from django.db import models
 import uuid
 from django.urls import reverse
-from Accounts.models import ArtisantUser, ImagesArtisant, ProfileUser 
+from Accounts.models import ArtisantUser, ImagesArtisant, ProfileUser
 
+class Categories(models.Model):
+    Plomberie = 'Plomberie'
+    Peinture = 'Peinture'
+    Menuiserie = 'Menuiserie'
+    Service = 'Service'
+    Autres = 'Autres'
+    TYPE_CHOICES = [
+        (Plomberie, 'Plomberie'),
+        (Peinture, 'Peinture'),
+        (Menuiserie, 'Menuiserie'),
+        (Service, 'Service'),
+        (Autres, 'Autres'),
+    ]
+    type_job = models.CharField(max_length=100, choices=TYPE_CHOICES, default=Service )\
+    
+    def __str__(self):
+        return self.type_job
 class Annonce(models.Model):
     """
     class for Product user
     """
-
+    Started = 'started'
+    Deal = 'Deal'
+    Finished = 'Finished' 
+    Closed = 'Closed'
+    Canceled = 'Canceled'
+    list_status = [
+        (Started, 'Started'), 
+        (Deal, 'Deal'), 
+        (Finished, 'Finished'), 
+        (Closed, 'Closed'),
+        (Canceled, 'Canceled'),
+    ]
     id = models.UUIDField(  
         primary_key=True,
         default=uuid.uuid4,
         editable=False)
     owner = models.ForeignKey(ProfileUser, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
-    # type_annonce = models.CharField(max_length=100, choices=TYPE_CHOICES, default=Vente )
     budget = models.DecimalField(max_digits=10, decimal_places=2)
-    # categories = models.ForeignKey(Categorie, on_delete=models.CASCADE)
+    categories = models.ForeignKey(Categories, on_delete=models.CASCADE, blank=True, null=True)
     description = models.TextField()
+    status = models.CharField(max_length=100, choices=list_status, default=Started)
     created = models.DateField(auto_now_add=True)
     update = models.DateField(auto_now=True)
+    view_annonce = models.IntegerField(blank=True, null=True, default=0)
     favorite = models.ManyToManyField(ProfileUser, related_name='favorite', blank=True)
 
     class Meta:

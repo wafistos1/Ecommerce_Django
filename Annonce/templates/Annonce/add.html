@@ -4,9 +4,7 @@
 {% block head_title %}<title>Add annonce</title>{% endblock %}
 {% block content1 %}
 
-
-
-
+{% if user.profile %}
 
 
 
@@ -28,8 +26,8 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
-                                    <p>Produit<span>*</span></p>
-                                    {{ a_form.product }}
+                                    <p>Status<span>*</span></p>
+                                    {{ a_form.status }}
                                 </div>
                             </div>
                         </div>
@@ -84,7 +82,17 @@
         </div>
     </div>
 </section>
+{% elif user.artisant %}
 
+<section>
+    <div class="container alert alert-danger" role="danger">
+        <p id="messages"> Vous ne pouvez pas deposer une annonce entant qu'artisan</p>
+        
+    </div>
+   
+</section>
+{% else %}
+{% endif %}
 {% endblock content1 %}
 {% block content2 %}{% endblock content2 %}
 {% block content3 %}{% endblock content3 %}
